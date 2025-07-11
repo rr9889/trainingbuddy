@@ -207,23 +207,32 @@ const week=[
 function imgLink(name){return `https://www.google.com/search?q=${encodeURIComponent(name+" exercise")}&tbm=isch`;}
 function imgSrc(name){
   // Use a more reliable image service with exercise-specific images
-  const exerciseImages = {
-    "Flat DB Bench Press": "https://cdn.shopify.com/s/files/1/1633/7705/files/Dumbbell-Bench-Press_600x600.jpg",
-    "Incline DB Bench Press": "https://cdn.shopify.com/s/files/1/1633/7705/files/Incline-Dumbbell-Bench-Press_600x600.jpg",
-    "DB Close‑Grip Press": "https://cdn.shopify.com/s/files/1/1633/7705/files/Close-Grip-Dumbbell-Press_600x600.jpg",
-    "DB Pullover": "https://cdn.shopify.com/s/files/1/1633/7705/files/Dumbbell-Pullover_600x600.jpg",
-    "DB Front Raise": "https://cdn.shopify.com/s/files/1/1633/7705/files/Dumbbell-Front-Raise_600x600.jpg",
-    "One‑Arm DB Row": "https://cdn.shopify.com/s/files/1/1633/7705/files/Single-Arm-Dumbbell-Row_600x600.jpg",
-    "DB Seal Row": "https://cdn.shopify.com/s/files/1/1633/7705/files/Seal-Row_600x600.jpg",
-    "Bent‑Over Rear‑Delt Row": "https://cdn.shopify.com/s/files/1/1633/7705/files/Bent-Over-Rear-Delt-Row_600x600.jpg",
-    "DB Shrug": "https://cdn.shopify.com/s/files/1/1633/7705/files/Dumbbell-Shrug_600x600.jpg",
-    "Alternating DB Curl": "https://cdn.shopify.com/s/files/1/1633/7705/files/Alternating-Dumbbell-Curl_600x600.jpg",
-    "Hammer Curl": "https://cdn.shopify.com/s/files/1/1633/7705/files/Hammer-Curl_600x600.jpg",
-    "Cross‑Body Curl": "https://cdn.shopify.com/s/files/1/1633/7705/files/Cross-Body-Hammer-Curl_600x600.jpg",
-    "Overhead DB Triceps Extension": "https://cdn.shopify.com/s/files/1/1633/7705/files/Overhead-Dumbbell-Tricep-Extension_600x600.jpg",
-    "DB Skull‑Crusher": "https://cdn.shopify.com/s/files/1/1633/7705/files/Dumbbell-Skull-Crusher_600x600.jpg",
-    "DB Arnold Press": "https://cdn.shopify.com/s/files/1/1633/7705/files/Arnold-Press_600x600.jpg"
-  };
+const exerciseImages={
+  "Flat DB Bench Press":"https://upload.wikimedia.org/wikipedia/commons/2/2e/Dumbbell-bench-press-1.png",
+  "Incline DB Bench Press":"https://upload.wikimedia.org/wikipedia/commons/9/97/Dumbbell-incline-bench-press-1.png",
+  "DB Close‑Grip Press":"https://upload.wikimedia.org/wikipedia/commons/4/47/Dumbbell_close_grip_bench_press.png",
+  "DB Pullover":"https://upload.wikimedia.org/wikipedia/commons/e/e5/Dumbbell-pullover-1.png",
+  "DB Front Raise":"https://upload.wikimedia.org/wikipedia/commons/5/5d/Dumbbell-front-raise-1.png",
+  "One‑Arm DB Row":"https://upload.wikimedia.org/wikipedia/commons/a/a9/Rear-deltoid-row-1.png",
+  "DB Seal Row":"https://upload.wikimedia.org/wikipedia/commons/3/3c/Seal_row.png",
+  "Bent‑Over Rear‑Delt Row":"https://upload.wikimedia.org/wikipedia/commons/2/28/Bent_over_dumbbell_row.png",
+  "DB Shrug":"https://upload.wikimedia.org/wikipedia/commons/6/6a/Dumbbell-shrugs-1.png",
+  "Chest‑Supported Rear‑Delt Fly":"https://upload.wikimedia.org/wikipedia/commons/8/85/Bent-over_reverse_flye_with_dumbbells.png",
+  "Alternating DB Curl":"https://upload.wikimedia.org/wikipedia/commons/4/4b/Alternating_hammer_curl_with_dumbbell_1.svg",
+  "Hammer Curl":"https://upload.wikimedia.org/wikipedia/commons/7/77/Hammer_curl_1.png",
+  "Cross‑Body Curl":"https://upload.wikimedia.org/wikipedia/commons/2/2d/Cross_body_hammer_curl_with_dumbbell_1.svg",
+  "Zottman Curl":"https://upload.wikimedia.org/wikipedia/commons/1/1d/Zottman_curl_1.png",
+  "Suitcase Carry":"https://upload.wikimedia.org/wikipedia/commons/8/85/Suitcase_carry_demo.png",
+  "Overhead DB Triceps Extension":"https://upload.wikimedia.org/wikipedia/commons/5/54/Bent_over_two_arm_triceps_extension_with_dumbbell_1.svg",
+  "DB Skull‑Crusher":"https://upload.wikimedia.org/wikipedia/commons/3/38/Lying_triceps_extension_dumbbell_1.svg",
+  "DB High Pull":"https://upload.wikimedia.org/wikipedia/commons/8/87/Dumbbell_high_pull.png",
+  "Farmer Carry Shrug":"https://upload.wikimedia.org/wikipedia/commons/4/4c/Farmer%27s_walk_1.png",
+  "DB Side Bend":"https://upload.wikimedia.org/wikipedia/commons/4/4e/Dumbbell_side_bend_1.png",
+  "Side‑Plank DB Reach":"https://upload.wikimedia.org/wikipedia/commons/0/07/Side_plank.png",
+  "Russian Twist (DB)":"https://upload.wikimedia.org/wikipedia/commons/0/04/Russian-twist-2.png",
+  "Hanging Knee Raise":"https://upload.wikimedia.org/wikipedia/commons/0/0d/Hanging_knee_raises_2.png",
+  "DB Arnold Press":"https://upload.wikimedia.org/wikipedia/commons/8/8a/Arnold_press_1.svg"
+};
   
   return exerciseImages[name] || `https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=56&h=56&fit=crop&crop=center`;
 }
