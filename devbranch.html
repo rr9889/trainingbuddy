@@ -126,7 +126,70 @@ const repLoad={
   "Seated DB OH Press":["8‑12","20‑30 lb"],
   "Pike Push‑Up":["8‑12","Body"],
   "20‑30 min easy jog":["20‑30 min","Body"],
-  "Mobility / Stretch":["10‑15 min","Body"]
+  "Mobility / Stretch":["10‑15 min","Body"],
+  // Additional missing exercises
+  "Side‑Plank Reach":["10‑12","5‑10 lb"],
+  "Incline Push‑Up":["8‑15","Body"],
+  "Decline Push‑Up":["8‑12","Body"],
+  "Wide‑Grip Push‑Up":["8‑12","Body"],
+  "Close‑Grip Bench Press":["6‑10","30‑40 lb"],
+  "Overhead Press":["8‑12","20‑30 lb"],
+  "Lateral Raise":["10‑15","10‑15 lb"],
+  "Rear Delt Fly":["12‑15","10‑15 lb"],
+  "Face Pull":["12‑15","Band"],
+  "Tricep Dip":["8‑15","Body"],
+  "Overhead Tricep Press":["8‑12","20‑25 lb"],
+  "Tricep Kickback":["10‑12","15‑20 lb"],
+  "Bicep Curl":["10‑12","20‑25 lb"],
+  "Preacher Curl":["10‑12","20‑25 lb"],
+  "21s Curl":["21 total","15‑20 lb"],
+  "Wrist Curl":["15‑20","10‑15 lb"],
+  "Reverse Wrist Curl":["15‑20","10‑15 lb"],
+  "Plank":["30‑60s","Body"],
+  "Side Plank":["30‑45s","Body"],
+  "Mountain Climber":["20‑30","Body"],
+  "Burpee":["5‑10","Body"],
+  "Jumping Jack":["20‑30","Body"],
+  "Bear Crawl":["20‑30s","Body"],
+  "Crab Walk":["20‑30s","Body"],
+  "Turkish Get‑Up":["5‑8","15‑25 lb"],
+  "Windmill":["8‑10","15‑25 lb"],
+  "Single Arm Press":["8‑12","20‑30 lb"],
+  "Single Arm Row":["8‑12","35‑45 lb"],
+  "Renegade Row":["8‑12","20‑30 lb"],
+  "Man Maker":["5‑8","20‑30 lb"],
+  "Thrusters":["8‑12","20‑30 lb"],
+  "Devil Press":["6‑10","20‑30 lb"],
+  "Snatch":["6‑10","20‑30 lb"],
+  "Clean and Press":["6‑10","25‑35 lb"],
+  "Bent Over Fly":["12‑15","10‑15 lb"],
+  "Chest Fly":["10‑12","20‑30 lb"],
+  "Incline Fly":["10‑12","20‑30 lb"],
+  "Decline Fly":["10‑12","20‑30 lb"],
+  "Pullover":["10‑15","25‑35 lb"],
+  "Stiff Leg Deadlift":["10‑12","30‑40 lb"],
+  "Romanian Deadlift":["10‑12","30‑40 lb"],
+  "Sumo Deadlift":["8‑12","40‑50 lb"],
+  "Good Morning":["10‑12","25‑35 lb"],
+  "Hip Hinge":["10‑12","20‑30 lb"],
+  "Glute Bridge":["12‑15","25‑35 lb"],
+  "Single Leg Glute Bridge":["10‑12","15‑25 lb"],
+  "Calf Raise":["15‑20","30‑40 lb"],
+  "Walking Lunge":["10‑12","20‑30 lb"],
+  "Reverse Lunge":["10‑12","20‑30 lb"],
+  "Curtsy Lunge":["10‑12","20‑30 lb"],
+  "Step Up":["10‑12","20‑30 lb"],
+  "Bulgarian Split Squat":["10‑12","20‑30 lb"],
+  "Goblet Squat":["10‑15","30‑40 lb"],
+  "Front Squat":["8‑12","25‑35 lb"],
+  "Overhead Squat":["8‑12","20‑30 lb"],
+  "Jump Squat":["8‑12","Body"],
+  "Squat Pulse":["15‑20","Body"],
+  "Wall Sit":["30‑60s","Body"],
+  "Single Leg RDL":["8‑12","20‑30 lb"],
+  "Pistol Squat":["5‑10","Body"],
+  "Cossack Squat":["8‑12","Body"],
+  "Lateral Lunge":["10‑12","20‑30 lb"]
 };
 
 /******** BASE WEEK ********/ 
@@ -142,7 +205,28 @@ const week=[
 
 /******** HELPER FUNCTIONS ********/ 
 function imgLink(name){return `https://www.google.com/search?q=${encodeURIComponent(name+" exercise")}&tbm=isch`;}
-function imgSrc(name){return `https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=56&h=56&fit=crop&crop=center`;}
+function imgSrc(name){
+  // Use a more reliable image service with exercise-specific images
+  const exerciseImages = {
+    "Flat DB Bench Press": "https://cdn.shopify.com/s/files/1/1633/7705/files/Dumbbell-Bench-Press_600x600.jpg",
+    "Incline DB Bench Press": "https://cdn.shopify.com/s/files/1/1633/7705/files/Incline-Dumbbell-Bench-Press_600x600.jpg",
+    "DB Close‑Grip Press": "https://cdn.shopify.com/s/files/1/1633/7705/files/Close-Grip-Dumbbell-Press_600x600.jpg",
+    "DB Pullover": "https://cdn.shopify.com/s/files/1/1633/7705/files/Dumbbell-Pullover_600x600.jpg",
+    "DB Front Raise": "https://cdn.shopify.com/s/files/1/1633/7705/files/Dumbbell-Front-Raise_600x600.jpg",
+    "One‑Arm DB Row": "https://cdn.shopify.com/s/files/1/1633/7705/files/Single-Arm-Dumbbell-Row_600x600.jpg",
+    "DB Seal Row": "https://cdn.shopify.com/s/files/1/1633/7705/files/Seal-Row_600x600.jpg",
+    "Bent‑Over Rear‑Delt Row": "https://cdn.shopify.com/s/files/1/1633/7705/files/Bent-Over-Rear-Delt-Row_600x600.jpg",
+    "DB Shrug": "https://cdn.shopify.com/s/files/1/1633/7705/files/Dumbbell-Shrug_600x600.jpg",
+    "Alternating DB Curl": "https://cdn.shopify.com/s/files/1/1633/7705/files/Alternating-Dumbbell-Curl_600x600.jpg",
+    "Hammer Curl": "https://cdn.shopify.com/s/files/1/1633/7705/files/Hammer-Curl_600x600.jpg",
+    "Cross‑Body Curl": "https://cdn.shopify.com/s/files/1/1633/7705/files/Cross-Body-Hammer-Curl_600x600.jpg",
+    "Overhead DB Triceps Extension": "https://cdn.shopify.com/s/files/1/1633/7705/files/Overhead-Dumbbell-Tricep-Extension_600x600.jpg",
+    "DB Skull‑Crusher": "https://cdn.shopify.com/s/files/1/1633/7705/files/Dumbbell-Skull-Crusher_600x600.jpg",
+    "DB Arnold Press": "https://cdn.shopify.com/s/files/1/1633/7705/files/Arnold-Press_600x600.jpg"
+  };
+  
+  return exerciseImages[name] || `https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=56&h=56&fit=crop&crop=center`;
+}
 
 function renderTable(list){
   let out='<table><thead><tr><th>📷</th><th>Exercise</th><th>Reps</th><th>Start Load</th><th>Swap</th></tr></thead><tbody>';
