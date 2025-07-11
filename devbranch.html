@@ -3,33 +3,27 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Interactive Dumbbell‑Only Upper‑Body Plan</title>
+<title>Dumbbell‑Only Upper‑Body Plan</title>
 <style>
-  :root{font-size:17px;--bg:#fbfdff;--card:#fff;--accent:#006aff;--border:#c9d4e6;}
-  body{margin:0;padding:1rem;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;color:#222;line-height:1.4;}
-  h1{text-align:center;font-size:1.55rem;margin:.4em 0 .8em}
-  h3{font-size:1.05rem;margin:.55em 0 .3em;font-weight:600}
-  .card{background:var(--card);padding:1rem;border:1px solid var(--border);border-radius:12px;box-shadow:0 2px 4px rgba(0,0,0,.03);margin-bottom:1rem}
-  .flex{display:flex;flex-wrap:wrap;gap:1rem}
-  .half{flex:1 1 48%}@media(max-width:680px){.half{flex:1 1 100%}}
-  table{width:100%;border-collapse:collapse;font-size:.9rem}
-  th,td{border:1px solid var(--border);padding:.4em .35em;text-align:left;vertical-align:middle}
-  th{background:#e9f1ff;font-weight:600}
-  tr:nth-child(even){background:#f8fbff}
-  .imgcell{width:56px;min-width:56px;text-align:center}
-  .imgcell img{width:52px;height:52px;object-fit:cover;border-radius:4px;box-shadow:0 0 0 1px var(--border)}
-  .swp{font-size:.75rem;background:#f0f4ff;color:#036;border:1px solid #a9b9d9;padding:.15em .45em;border-radius:6px;cursor:pointer}
-  .swp:hover{background:#dfe9ff}
-  .btn{cursor:pointer;background:var(--accent);color:#fff;border:none;padding:.32em .75em;font-size:.8rem;border-radius:7px;}
-  .btn:hover{opacity:.9}
+ :root{font-size:17px;--bg:#fbfdff;--card:#fff;--accent:#006aff;--border:#c9d4e6;}
+ body{margin:0;padding:1rem;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;color:#222;line-height:1.4;}
+ h1{text-align:center;font-size:1.55rem;margin:.4em 0 .8em}
+ h3{font-size:1.05rem;margin:.55em 0 .3em;font-weight:600}
+ .card{background:var(--card);padding:1rem;border:1px solid var(--border);border-radius:12px;box-shadow:0 2px 4px rgba(0,0,0,.03);margin-bottom:1rem}
+ .flex{display:flex;flex-wrap:wrap;gap:1rem}
+ .half{flex:1 1 48%}@media(max-width:680px){.half{flex:1 1 100%}}
+ table{width:100%;border-collapse:collapse;font-size:.9rem}
+ th,td{border:1px solid var(--border);padding:.4em .35em;text-align:left;vertical-align:middle}
+ th{background:#e9f1ff;font-weight:600}
+ tr:nth-child(even){background:#f8fbff}
+ .imgcell{width:56px;min-width:56px;text-align:center}
+ .imgcell img{width:52px;height:52px;object-fit:cover;border-radius:4px;box-shadow:0 0 0 1px var(--border)}
+ .swp{font-size:.75rem;background:#f0f4ff;color:#036;border:1px solid #a9b9d9;padding:.15em .45em;border-radius:6px;cursor:pointer}
+ .swp:hover{background:#dfe9ff}
 </style>
 </head>
 <body>
-<h1>💪 Dumbbell‑Only Upper‑Body ∙ 7‑Day Interactive Plan</h1>
-
-<div class="card" style="text-align:center;margin-bottom:1.3rem">
-  <button class="btn" onclick="shuffleWeek()">🔀 Shuffle Entire Week</button>
-</div>
+<h1>💪 Dumbbell‑Only Upper‑Body ∙ 7‑Day Plan</h1>
 
 <section id="week" class="flex"></section>
 
@@ -90,7 +84,7 @@ const repLoad={
   "Russian Twist (DB)": ["15‑20","10‑20 lb"],
   "Hanging Knee Raise":["12‑15","Body"],
   "DB Arnold Press":["8‑12","20‑30 lb"],
-  /* Band / bodyweight fallback approximate */
+  /* fallback */
   "Push‑Up":["10‑20","Body"],
   "Diamond Push‑Up":["8‑15","Body"],
   "Steep‑Incline Push‑Up":["8‑15","Body"],
@@ -111,7 +105,6 @@ const repLoad={
   "Band Hammer Curl":["12‑15","Band"],
   "Reverse Curl":["10‑12","20‑25 lb"],
   "Band Reverse Curl":["12‑15","Band"],
-  "DB Side Bend":["12‑15","25‑35 lb"],
   "Tall‑Kneel Woodchop":["10‑12","Band"],
   "Side‑Plank Hip Lift":["12‑15","Body"],
   "Seated DB Halo":["12‑15","10‑20 lb"],
@@ -130,7 +123,4 @@ const repLoad={
 
 /*****  BASE WEEK TEMPLATE  *****/
 const baseWeek=[
-  {day:"Mon • Chest / Front Delts",ex:["Flat DB Bench Press","Incline DB Bench Press","DB Close‑Grip Press","DB Pullover","DB Front Raise"]},
-  {day:"Tue • Lats / Rear Delts / Mid‑Traps",ex:["One‑Arm DB Row","DB Seal Row","Bent‑Over Rear‑Delt Row","DB Shrug","Chest‑Supported Rear‑Delt Fly"]},
-  {day:"Wed • Biceps / Forearms",ex:["Alternating DB Curl","Hammer Curl","Cross‑Body Curl","Zottman Curl","Suitcase Carry"]},
-  {day:"Thu • Triceps / Mid‑Traps",ex:["Overhead DB Triceps Extension","DB Skull‑Crusher","Close‑Grip DB Floor Press","
+  {day:"Mon • Chest / Front Delстати",ex:["Flat DB Bench Press","Incline DB Bench Press","DB Close‑Grip Press","DB Pullover","
