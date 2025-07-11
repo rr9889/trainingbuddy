@@ -84,7 +84,49 @@ const repLoad={
   "Side‑Plank DB Reach":["10‑12","5‑10 lb"],
   "Russian Twist (DB)": ["15‑20","10‑20 lb"],
   "Hanging Knee Raise":["12‑15","Body"],
-  "DB Arnold Press":["8‑12","20‑30 lb"]
+  "DB Arnold Press":["8‑12","20‑30 lb"],
+  // Add missing exercises for swap options
+  "DB Floor Press":["6‑10","30‑40 lb"],
+  "Push‑Up":["8‑15","Body"],
+  "Steep‑Incline Push‑Up":["8‑15","Body"],
+  "Feet‑Up DB Press":["6‑10","25‑35 lb"],
+  "Diamond Push‑Up":["8‑12","Body"],
+  "Close‑Grip Floor Press":["6‑10","30‑40 lb"],
+  "Straight‑Arm Band Pulldown":["12‑15","Band"],
+  "Lat Prayer (band)":["12‑15","Band"],
+  "Landmine Press (band)":["10‑15","Band"],
+  "Plate Raise":["10‑15","25‑35 lb"],
+  "Chest‑Supported Row":["8‑12","30‑40 lb"],
+  "Renegade Row":["8‑12","20‑30 lb"],
+  "Supported Row":["8‑12","30‑40 lb"],
+  "Bent‑Over Row":["8‑12","30‑40 lb"],
+  "Chest‑Sup Rear‑Delt Fly":["12‑15","10‑15 lb"],
+  "Band Face Pull":["12‑15","Band"],
+  "Farmer Carry":["40‑60s","40‑55 lb"],
+  "High Pull":["8‑12","20‑30 lb"],
+  "Band Pull‑Apart":["12‑15","Band"],
+  "Prone T Raise":["12‑15","5‑10 lb"],
+  "Band Curl":["10‑12","Band"],
+  "Concentration Curl":["10‑12","20‑25 lb"],
+  "Band Hammer Curl":["10‑12","Band"],
+  "Reverse Curl":["12‑15","15‑20 lb"],
+  "Band Reverse Curl":["12‑15","Band"],
+  "Bench Dip":["10‑15","Body"],
+  "Close‑Grip Push‑Up":["8‑12","Body"],
+  "JM Press":["8‑12","20‑30 lb"],
+  "Upright Row":["8‑12","20‑30 lb"],
+  "Band High Pull":["8‑12","Band"],
+  "Rack Pull Shrug":["10‑12","40‑55 lb"],
+  "Side‑Plank Reach":["10‑12","5‑10 lb"],
+  "Tall‑Kneel Woodchop":["10‑12","10‑20 lb"],
+  "Side‑Plank Hip Lift":["10‑12","Body"],
+  "Seated DB Halo":["12‑15","10‑15 lb"],
+  "Reverse Crunch":["12‑15","Body"],
+  "Dead Bug":["10‑12","Body"],
+  "Seated DB OH Press":["8‑12","20‑30 lb"],
+  "Pike Push‑Up":["8‑12","Body"],
+  "20‑30 min easy jog":["20‑30 min","Body"],
+  "Mobility / Stretch":["10‑15 min","Body"]
 };
 
 /******** BASE WEEK ********/ 
@@ -95,21 +137,22 @@ const week=[
   {day:"Thu • Triceps / Mid‑Traps",ex:["Overhead DB Triceps Extension","DB Skull‑Crusher","Close‑Grip DB Floor Press","DB High Pull","Farmer Carry Shrug"]},
   {day:"Fri • Obliques / Core",ex:["DB Side Bend","Side‑Plank DB Reach","Russian Twist (DB)","Suitcase Carry","Hanging Knee Raise"]},
   {day:"Sat • Full Upper Blast",ex:["Incline DB Bench Press","One‑Arm DB Row","DB Arnold Press","DB Shrug","Alternating DB Curl"]},
-  {day:"Sun • Rest / Active Recovery",ex:["20‑30 min easy jog","Mobility / Stretch"]}
+  {day:"Sun • Rest / Active Recovery",ex:["20‑30 min easy jog","Mobility / Stretch"]}
 ];
 
 /******** HELPER FUNCTIONS ********/ 
 function imgLink(name){return `https://www.google.com/search?q=${encodeURIComponent(name+" exercise")}&tbm=isch`;}
-function imgSrc(name){return `https://source.unsplash.com/56x56/?dumbbell`;}
+function imgSrc(name){return `https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=56&h=56&fit=crop&crop=center`;}
 
 function renderTable(list){
   let out='<table><thead><tr><th>📷</th><th>Exercise</th><th>Reps</th><th>Start Load</th><th>Swap</th></tr></thead><tbody>';
   list.forEach(ex=>{
-    const rep=repLoad[ex]?repLoad[ex][0]:'';
-    const load=repLoad[ex]?repLoad[ex][1]:'';
+    const rep=repLoad[ex]?repLoad[ex][0]:'8-12';
+    const load=repLoad[ex]?repLoad[ex][1]:'Moderate';
     out+=`<tr data-base="${ex}"><td class="imgcell"><a href="${imgLink(ex)}" target="_blank"><img src="${imgSrc(ex)}" alt="${ex}"></a></td><td>${ex}</td><td>${rep}</td><td>${load}</td><td><button class="swp" onclick="swap(this)">↻</button></td></tr>`;
   });
-  out+='</tbody></table>'; return out;
+  out+='</tbody></table>'; 
+  return out;
 }
 
 function renderWeek(){
@@ -118,7 +161,8 @@ function renderWeek(){
   week.forEach(d=>{
     const col=document.createElement('div');
     col.className=d.day.startsWith('Sun')?'card':'half';
-    const card=document.createElement('div');card.className='card';
+    const card=document.createElement('div');
+    card.className='card';
     card.innerHTML=`<h3>${d.day}</h3>${renderTable(d.ex)}`;
     col.appendChild(card);
     wrap.appendChild(col);
@@ -128,17 +172,32 @@ function renderWeek(){
 function swap(btn){
   const row=btn.closest('tr');
   const base=row.dataset.base;
-  const opts=[base,...(bank[base]||[])]
+  const opts=[base,...(bank[base]||[])];
   const current=row.children[1].innerText.trim();
   let next=current;
-  while(next===current&&opts.length>1){next=opts[Math.floor(Math.random()*opts.length)];}
+  while(next===current && opts.length>1){
+    next=opts[Math.floor(Math.random()*opts.length)];
+  }
   row.children[1].innerText=next;
-  row.children[2].innerText=repLoad[next]?repLoad[next][0]:'';
-  row.children[3].innerText=repLoad[next]?repLoad[next][1]:'';
-  const a=row.querySelector('a');a.href=imgLink(next);
+  row.children[2].innerText=repLoad[next]?repLoad[next][0]:'8-12';
+  row.children[3].innerText=repLoad[next]?repLoad[next][1]:'Moderate';
+  const a=row.querySelector('a');
+  a.href=imgLink(next);
+  const img=row.querySelector('img');
+  img.alt=next;
 }
 
-renderWeek();
+// Initialize the page
+document.addEventListener('DOMContentLoaded', function() {
+  renderWeek();
+});
+
+// Fallback initialization
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', renderWeek);
+} else {
+  renderWeek();
+}
 </script>
 <footer style="text-align:center;font-size:.7rem;color:#777;margin-top:1.2rem">Tap ↻ to swap an exercise • Tap image for demos • © 2025</footer>
 </body>
