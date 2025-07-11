@@ -8,7 +8,6 @@
   :root{font-size:17px;--bg:#fbfdff;--card:#fff;--accent:#006aff;--border:#c9d4e6;}
   body{margin:0;padding:1rem;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;color:#222;line-height:1.4;}
   h1{text-align:center;font-size:1.55rem;margin:.4em 0 .8em}
-  h2{font-size:1.15rem;color:var(--accent);margin:.6em 0 .35em;font-weight:600}
   h3{font-size:1.05rem;margin:.55em 0 .3em;font-weight:600}
   .card{background:var(--card);padding:1rem;border:1px solid var(--border);border-radius:12px;box-shadow:0 2px 4px rgba(0,0,0,.03);margin-bottom:1rem}
   .flex{display:flex;flex-wrap:wrap;gap:1rem}
@@ -21,7 +20,7 @@
   .imgcell img{width:52px;height:52px;object-fit:cover;border-radius:4px;box-shadow:0 0 0 1px var(--border)}
   .swp{font-size:.75rem;background:#f0f4ff;color:#036;border:1px solid #a9b9d9;padding:.15em .45em;border-radius:6px;cursor:pointer}
   .swp:hover{background:#dfe9ff}
-  .btn{cursor:pointer;background:var(--accent);color:#fff;border:none;padding:.33em .7em;font-size:.79rem;border-radius:7px;}
+  .btn{cursor:pointer;background:var(--accent);color:#fff;border:none;padding:.32em .75em;font-size:.8rem;border-radius:7px;}
   .btn:hover{opacity:.9}
 </style>
 </head>
@@ -37,36 +36,30 @@
 <script>
 /*****  EXERCISE BANK  *****/
 const bank={
-  // Chest & Front Shoulders & Triceps
   "Flat DB Bench Press":["DB Floor Press","Push‑Up"],
   "Incline DB Bench Press":["Steep‑Incline Push‑Up","Feet‑Up DB Press"],
   "DB Close‑Grip Press":["Diamond Push‑Up","Close‑Grip Floor Press"],
   "DB Pullover":["Straight‑Arm Band Pulldown","Lat Prayer (band)"],
   "DB Front Raise":["Landmine Press (band)","Plate Raise"],
-  // Lats, Rear Delts, Mid‑Traps
   "One‑Arm DB Row":["Chest‑Supported Row","Renegade Row"],
   "DB Seal Row":["Supported Row","Bent‑Over Row"],
   "Bent‑Over Rear‑Delt Row":["Chest‑Sup Rear‑Delt Fly","Band Face Pull"],
   "DB Shrug":["Farmer Carry","High Pull"],
   "Chest‑Supported Rear‑Delt Fly":["Band Pull‑Apart","Prone T Raise"],
-  // Biceps / Forearms
   "Alternating DB Curl":["Band Curl","Concentration Curl"],
   "Hammer Curl":["Cross‑Body Curl","Band Hammer Curl"],
   "Cross‑Body Curl":["Hammer Curl","Band Curl"],
   "Zottman Curl":["Reverse Curl","Band Reverse Curl"],
   "Suitcase Carry":["DB Side Bend","Farmer Carry"],
-  // Triceps / Mid‑traps day
   "Overhead DB Triceps Extension":["DB Skull‑Crusher","Bench Dip"],
-  "DB Skull‑Crusher":["OH DB Ext","Diamond Push‑Up"],
+  "DB Skull‑Crusher":["Overhead DB Triceps Extension","Diamond Push‑Up"],
   "Close‑Grip DB Floor Press":["Close‑Grip Push‑Up","JM Press"],
   "DB High Pull":["Upright Row","Band High Pull"],
   "Farmer Carry Shrug":["DB Shrug","Rack Pull Shrug"],
-  // Obliques / Core
   "DB Side Bend":["Side‑Plank Reach","Suitcase Carry"],
   "Side‑Plank DB Reach":["Tall‑Kneel Woodchop","Side‑Plank Hip Lift"],
-  "Russian Twist (DB)":"Seated DB Halo".split(),
+  "Russian Twist (DB)": ["Seated DB Halo"],
   "Hanging Knee Raise":["Reverse Crunch","Dead Bug"],
-  // Full Upper Blast extras
   "DB Arnold Press":["Seated DB OH Press","Pike Push‑Up"]
 };
 
@@ -94,9 +87,45 @@ const repLoad={
   "Farmer Carry Shrug":["40‑60s","40‑55 lb"],
   "DB Side Bend":["12‑15","25‑35 lb"],
   "Side‑Plank DB Reach":["10‑12","5‑10 lb"],
-  "Russian Twist (DB)":{"0":"15‑20","1":"10‑20 lb"},
+  "Russian Twist (DB)": ["15‑20","10‑20 lb"],
   "Hanging Knee Raise":["12‑15","Body"],
-  "DB Arnold Press":["8‑12","20‑30 lb"]
+  "DB Arnold Press":["8‑12","20‑30 lb"],
+  /* Band / bodyweight fallback approximate */
+  "Push‑Up":["10‑20","Body"],
+  "Diamond Push‑Up":["8‑15","Body"],
+  "Steep‑Incline Push‑Up":["8‑15","Body"],
+  "Feet‑Up DB Press":["6‑10","25‑35 lb"],
+  "Landmine Press (band)": ["8‑12","Band"],
+  "Plate Raise":["10‑15","10‑25 lb"],
+  "Chest‑Supported Row":["8‑12","30‑40 lb"],
+  "Renegade Row":["8‑12","20‑30 lb"],
+  "Supported Row":["8‑12","30‑40 lb"],
+  "Bent‑Over Row":["8‑12","30‑40 lb"],
+  "Band Face Pull":["12‑20","Band"],
+  "Farmer Carry":["40‑60s","40‑60 lb"],
+  "High Pull":["8‑12","20‑30 lb"],
+  "Band Pull‑Apart":["15‑20","Band"],
+  "Prone T Raise":["12‑15","5‑10 lb"],
+  "Band Curl":["12‑15","Band"],
+  "Concentration Curl":["10‑12","15‑25 lb"],
+  "Band Hammer Curl":["12‑15","Band"],
+  "Reverse Curl":["10‑12","20‑25 lb"],
+  "Band Reverse Curl":["12‑15","Band"],
+  "DB Side Bend":["12‑15","25‑35 lb"],
+  "Tall‑Kneel Woodchop":["10‑12","Band"],
+  "Side‑Plank Hip Lift":["12‑15","Body"],
+  "Seated DB Halo":["12‑15","10‑20 lb"],
+  "Reverse Crunch":["12‑15","Body"],
+  "Dead Bug":["15‑20","Body"],
+  "Seated DB OH Press":["8‑12","20‑30 lb"],
+  "Pike Push‑Up":["6‑12","Body"],
+  "Upright Row":["8‑12","20‑30 lb"],
+  "Band High Pull":["12‑15","Band"],
+  "Rack Pull Shrug":["8‑12","60+ lb"],
+  "Side‑Plank Reach":["10‑15","Body"],
+  "JM Press":["6‑10","20‑30 lb"],
+  "Straight‑Arm Band Pulldown":["12‑15","Band"],
+  "Lat Prayer (band)": ["12‑15","Band"]
 };
 
 /*****  BASE WEEK TEMPLATE  *****/
@@ -104,76 +133,4 @@ const baseWeek=[
   {day:"Mon • Chest / Front Delts",ex:["Flat DB Bench Press","Incline DB Bench Press","DB Close‑Grip Press","DB Pullover","DB Front Raise"]},
   {day:"Tue • Lats / Rear Delts / Mid‑Traps",ex:["One‑Arm DB Row","DB Seal Row","Bent‑Over Rear‑Delt Row","DB Shrug","Chest‑Supported Rear‑Delt Fly"]},
   {day:"Wed • Biceps / Forearms",ex:["Alternating DB Curl","Hammer Curl","Cross‑Body Curl","Zottman Curl","Suitcase Carry"]},
-  {day:"Thu • Triceps / Mid‑Traps",ex:["Overhead DB Triceps Extension","DB Skull‑Crusher","Close‑Grip DB Floor Press","DB High Pull","Farmer Carry Shrug"]},
-  {day:"Fri • Obliques / Core",ex:["DB Side Bend","Side‑Plank DB Reach","Russian Twist (DB)","Suitcase Carry","Hanging Knee Raise"]},
-  {day:"Sat • Full Upper Blast",ex:["Incline DB Bench Press","One‑Arm DB Row","DB Arnold Press","DB Shrug","Alternating DB Curl"]},
-  {day:"Sun • Rest / Active Recovery",ex:["20‑30 min easy jog","Mobility / Stretch"]}
-];
-
-/*****  BUILD IMAGE LINK *****/
-function imgLink(name){
-  const q=encodeURIComponent(name+" exercise");
-  return `https://www.google.com/search?q=${q}&tbm=isch`;
-}
-function imgSrc(name){return `https://source.unsplash.com/56x56/?dumbbell,fitness`;}
-
-/*****  RENDER FUNCTION *****/
-let currentWeek=[];
-function render(){
-  const container=document.getElementById('week');
-  container.innerHTML='';
-  currentWeek.forEach(dayObj=>{
-    const wrap=document.createElement('div');
-    wrap.className=dayObj.day.startsWith('Sun')?"card":"half";
-    const inn=document.createElement('div');inn.className='card';
-    inn.innerHTML=`<h3>${dayObj.day}</h3>${renderTable(dayObj.ex)}`;
-    wrap.appendChild(inn);
-    container.appendChild(wrap);
-  });
-}
-function renderTable(list){
-  let html='<table><thead><tr><th>📷</th><th>Exercise</th><th>Reps</th><th>Start Load</th><th>Swap</th></tr></thead><tbody>';
-  list.forEach(ex=>{
-    const rep=repLoad[ex]?[repLoad[ex][0]||""," "]:rep="";
-    const load=repLoad[ex]?[repLoad[ex][1]||""," "]:load="";
-    html+=`<tr data-base="${ex}"><td class="imgcell"><a href="${imgLink(ex)}" target="_blank"><img src="${imgSrc(ex)}" alt="${ex}"></a></td><td>${ex}</td><td>${rep}</td><td>${load}</td><td><button class="swp" onclick="swap(this)">↻</button></td></tr>`;
-  });
-  html+='</tbody></table>';return html;
-}
-
-/*****  INITIALISE WEEK (1st view) *****/
-function initWeek(){
-  currentWeek=baseWeek.map(d=>({day:d.day,ex:d.ex.slice()}));
-}
-
-/*****  SWAP SINGLE EXERCISE *****/
-function swap(btn){
-  const row=btn.closest('tr');
-  const base=row.dataset.base;
-  const options=[base,...(bank[base]||[])];
-  const current=row.children[1].innerText.trim();
-  let next=current;
-  while(next===current && options.length>1){next=options[Math.floor(Math.random()*options.length)];}
-  row.children[1].innerText=next;
-  row.children[2].innerText=repLoad[next]?repLoad[next][0]:"";
-  row.children[3].innerText=repLoad[next]?repLoad[next][1]:"";
-  const a=row.querySelector('a'); a.href=imgLink(next);
-}
-
-/*****  SHUFFLE ENTIRE WEEK *****/
-function shuffleWeek(){
-  currentWeek=baseWeek.map(day=>{
-    return {day:day.day,ex:day.ex.map(base=>{
-      const opts=[base,...(bank[base]||[])];
-      return opts[Math.floor(Math.random()*opts.length)];
-    })};
-  });
-  render();
-}
-
-initWeek();
-render();
-</script>
-<footer style="text-align:center;font-size:.7rem;color:#777;margin-top:1.2rem">↻ to swap • 🔀 to refresh full week • Tap image for demos • © 2025</footer>
-</body>
-</html>
+  {day:"Thu • Triceps / Mid‑Traps",ex:["Overhead DB Triceps Extension","DB Skull‑Crusher","Close‑Grip DB Floor Press","
